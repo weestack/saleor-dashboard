@@ -17,10 +17,10 @@ import { commonMessages, sectionNames } from "@saleor/intl";
 import { UserError } from "@saleor/types";
 import createSingleAutocompleteSelectHandler from "@saleor/utils/handlers/singleAutocompleteSelectChangeHandler";
 import { mapCountriesToChoices } from "@saleor/utils/maps";
+import CompanyAddressInput from "@saleor/components/CompanyAddressInput";
 import { maybe } from "../../../misc";
 import { AuthorizationKeyType } from "../../../types/globalTypes";
 import { SiteSettings_shop } from "../../types/SiteSettings";
-import SiteSettingsAddress from "../SiteSettingsAddress/SiteSettingsAddress";
 import SiteSettingsDetails from "../SiteSettingsDetails/SiteSettingsDetails";
 import SiteSettingsKeys from "../SiteSettingsKeys/SiteSettingsKeys";
 import SiteSettingsMailing, {
@@ -204,12 +204,16 @@ const SiteSettingsPage: React.FC<SiteSettingsPageProps> = props => {
                   <FormattedMessage defaultMessage="Email adress you provide here will be used as a contact adress for your customers." />
                 </Typography>
               </div>
-              <SiteSettingsAddress
+              <CompanyAddressInput
                 data={data}
                 displayCountry={displayCountry}
                 countries={countryChoices}
                 errors={siteFormErrors}
                 disabled={disabled}
+                header={intl.formatMessage({
+                  defaultMessage: "Store Information",
+                  description: "section header"
+                })}
                 onChange={change}
                 onCountryChange={handleCountryChange}
               />
