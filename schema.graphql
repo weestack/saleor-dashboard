@@ -75,7 +75,7 @@ type AccountRegister {
 input AccountRegisterInput {
   email: String!
   password: String!
-  redirectUrl: String!
+  redirectUrl: String
 }
 
 type AccountRequestDeletion {
@@ -3997,6 +3997,7 @@ type ShippingZone implements Node {
   priceRange: MoneyRange
   countries: [CountryDisplay]
   shippingMethods: [ShippingMethod]
+  warehouses: [Warehouse]
 }
 
 type ShippingZoneBulkDelete {
