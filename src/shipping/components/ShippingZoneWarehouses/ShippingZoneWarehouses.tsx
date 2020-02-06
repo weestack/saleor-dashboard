@@ -33,7 +33,7 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
     <Card>
       <CardTitle
         title={intl.formatMessage({
-          defaultMessage: "Visibility",
+          defaultMessage: "Warehouse",
           description: "section header"
         })}
       />
@@ -42,6 +42,16 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
           choices={warehouses}
           name="warehouse"
           onChange={onChange}
+          onFetchMore={onFetchMore}
+          hasMore={hasMore}
+          loading={loading}
+          placeholder={intl.formatMessage({
+            defaultMessage: "Select Warehouse",
+            description: "input placeholder"
+          })}
+          label={intl.formatMessage({
+            defaultMessage: "Warehouse"
+          })}
           displayValue={displayValue}
           value={data.warehouse}
         />

@@ -11,6 +11,7 @@ import Grid from "@saleor/components/Grid";
 import PageHeader from "@saleor/components/PageHeader";
 import SaveButtonBar from "@saleor/components/SaveButtonBar";
 import createSingleAutocompleteSelectHandler from "@saleor/utils/handlers/singleAutocompleteSelectChangeHandler";
+import useStateFromProps from "@saleor/hooks/useStateFromProps";
 import { maybe } from "../../../misc";
 import { UserError } from "../../../types";
 import { ShippingMethodTypeEnum } from "../../../types/globalTypes";
@@ -68,7 +69,7 @@ const ShippingZoneDetailsPage: React.FC<ShippingZoneDetailsPageProps> = ({
     name: maybe(() => shippingZone.name, ""),
     warehouse: maybe(() => shippingZone.warehouses[0].id, "")
   };
-  const [warehouseDisplayValue, setWarehouseDisplayValue] = React.useState(
+  const [warehouseDisplayValue, setWarehouseDisplayValue] = useStateFromProps(
     maybe(() => shippingZone.warehouses[0].name, "")
   );
 
