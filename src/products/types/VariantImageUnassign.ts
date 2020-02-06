@@ -95,6 +95,12 @@ export interface VariantImageUnassign_variantImageUnassign_productVariant_produc
   variants: (VariantImageUnassign_variantImageUnassign_productVariant_product_variants | null)[] | null;
 }
 
+export interface VariantImageUnassign_variantImageUnassign_productVariant_stock {
+  __typename: "Stock";
+  id: string;
+  quantity: number;
+}
+
 export interface VariantImageUnassign_variantImageUnassign_productVariant {
   __typename: "ProductVariant";
   id: string;
@@ -107,6 +113,7 @@ export interface VariantImageUnassign_variantImageUnassign_productVariant {
   sku: string;
   quantity: number;
   quantityAllocated: number | null;
+  stock: (VariantImageUnassign_variantImageUnassign_productVariant_stock | null)[] | null;
 }
 
 export interface VariantImageUnassign_variantImageUnassign {
