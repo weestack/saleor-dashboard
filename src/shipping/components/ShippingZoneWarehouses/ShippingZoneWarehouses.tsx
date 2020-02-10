@@ -15,6 +15,7 @@ interface VisibilityCardProps extends FetchMoreProps {
   displayValue: string;
   warehouses: SingleAutocompleteChoiceType[];
   onChange: FormChange;
+  onWarehouseAdd: () => void;
 }
 
 export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
@@ -23,9 +24,10 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
     displayValue,
     hasMore,
     loading,
+    warehouses,
     onChange,
     onFetchMore,
-    warehouses
+    onWarehouseAdd
   } = props;
   const intl = useIntl();
 
@@ -39,6 +41,13 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
       />
       <CardContent>
         <SingleAutocompleteSelectField
+          add={{
+            label: intl.formatMessage({
+              defaultMessage: "Add New Warehouse",
+              description: "button"
+            }),
+            onClick: onWarehouseAdd
+          }}
           choices={warehouses}
           name="warehouse"
           onChange={onChange}

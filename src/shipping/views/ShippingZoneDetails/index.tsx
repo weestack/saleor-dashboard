@@ -174,6 +174,7 @@ const ShippingZoneDetails: React.FC<ShippingZoneDetailsProps> = ({
           })
         }
         onSubmit={handleSubmit}
+        onWarehouseAdd={() => openModal("add-warehouse")}
         onWeightRateAdd={() =>
           openModal("add-rate", {
             type: ShippingMethodTypeEnum.WEIGHT
