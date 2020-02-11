@@ -20,8 +20,13 @@ import createDialogActionHandlers from "@saleor/utils/handlers/dialogActionHandl
 import ShippingZoneRateDialog from "@saleor/shipping/components/ShippingZoneRateDialog";
 import useShop from "@saleor/hooks/useShop";
 import ShippingZoneCountriesAssignDialog from "@saleor/shipping/components/ShippingZoneCountriesAssignDialog";
-import { maybe } from "../../../misc";
-import { ShippingMethodTypeEnum } from "../../../types/globalTypes";
+import ShippingZoneAddWarehouseDialog from "@saleor/shipping/components/ShippingZoneAddWarehouseDialog";
+import { useWarehouseCreate } from "@saleor/warehouses/mutations";
+import { maybe, findValueInEnum } from "../../../misc";
+import {
+  ShippingMethodTypeEnum,
+  CountryCode
+} from "../../../types/globalTypes";
 import ShippingZoneDetailsPage, {
   FormData
 } from "../../components/ShippingZoneDetailsPage";
@@ -118,6 +123,17 @@ const ShippingZoneDetails: React.FC<ShippingZoneDetailsProps> = ({
   const [updateShippingZone, updateShippingZoneOpts] = useShippingZoneUpdate({
     onCompleted: data => {
       if (data.shippingZoneUpdate.errors.length === 0) {
+        notify({
+          text: intl.formatMessage(commonMessages.savedChanges)
+        });
+        closeModal();
+      }
+    }
+  });
+
+  const [createWarehouse, createWarehouseOpts] = useWarehouseCreate({
+    onCompleted: data => {
+      if (data.createWarehouse.errors.length === 0) {
         notify({
           text: intl.formatMessage(commonMessages.savedChanges)
         });
@@ -352,6 +368,37 @@ const ShippingZoneDetails: React.FC<ShippingZoneDetailsProps> = ({
           />
         </DialogContentText>
       </ActionDialog>
+      <ShippingZoneAddWarehouseDialog
+        countries={maybe(() => shop.countries, [])}
+        disabled={createWarehouseOpts.loading}
+        open={params.action === "add-warehouse"}
+        confirmButtonState={createWarehouseOpts.status}
+        errors={maybe(
+          () => createWarehouseOpts.data.createWarehouse.errors,
+          []
+        )}
+        onClose={closeModal}
+        onSubmit={data =>
+          createWarehouse({
+            variables: {
+              input: {
+                address: {
+                  city: data.city,
+                  cityArea: data.cityArea,
+                  country: findValueInEnum(data.country, CountryCode),
+                  countryArea: data.countryArea,
+                  phone: data.phone,
+                  postalCode: data.postalCode,
+                  streetAddress1: data.streetAddress1,
+                  streetAddress2: data.streetAddress2
+                },
+                companyName: data.companyName,
+                name: data.name
+              }
+            }
+          })
+        }
+      />
     </>
   );
 };
