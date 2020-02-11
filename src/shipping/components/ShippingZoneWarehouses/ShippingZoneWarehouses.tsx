@@ -65,7 +65,8 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
             description: "input placeholder"
           })}
           label={intl.formatMessage({
-            defaultMessage: "Warehouse"
+            defaultMessage: "Warehouse",
+            id: "shippingZoneWarehouses.autocomplete.label"
           })}
           displayValue={displayValue}
           value={data.warehouse}

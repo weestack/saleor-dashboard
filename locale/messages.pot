@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2020-01-20T16:06:58.433Z\n"
+"POT-Creation-Date: 2020-02-11T15:42:51.291Z\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "MIME-Version: 1.0\n"
@@ -92,6 +92,14 @@ msgstr ""
 #. defaultMessage is:
 #. Actions
 msgctxt "table actions"
+msgid "Actions"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseList/WarehouseList.json
+#. [src.warehouses.components.WarehouseList.4190792473]
+#. defaultMessage is:
+#. Actions
+msgctxt "description"
 msgid "Actions"
 msgstr ""
 
@@ -237,6 +245,14 @@ msgstr ""
 #. Add New Authorization Key
 msgctxt "dialog header"
 msgid "Add New Authorization Key"
+msgstr ""
+
+#: build/locale/src/shipping/components/ShippingZoneWarehouses/ShippingZoneWarehouses.json
+#. [src.shipping.components.ShippingZoneWarehouses.2304484478] - button
+#. defaultMessage is:
+#. Add New Warehouse
+msgctxt "button"
+msgid "Add New Warehouse"
 msgstr ""
 
 #: build/locale/src/shipping/components/ShippingZoneRateDialog/ShippingZoneRateDialog.json
@@ -455,12 +471,24 @@ msgctxt "header"
 msgid "Address Information"
 msgstr ""
 
+#: build/locale/src/warehouses/components/WarehouseCreatePage/WarehouseCreatePage.json
+#. [src.warehouses.components.WarehouseCreatePage.1967111456] - warehouse
+#. defaultMessage is:
+#. Address Information
+#: build/locale/src/warehouses/components/WarehouseDetailsPage/WarehouseDetailsPage.json
+#. [src.warehouses.components.WarehouseDetailsPage.1967111456] - warehouse
+#. defaultMessage is:
+#. Address Information
+msgctxt "warehouse"
+msgid "Address Information"
+msgstr ""
+
 #: build/locale/src/components/AddressEdit/AddressEdit.json
 #. [src.components.AddressEdit.1363074570]
 #. defaultMessage is:
 #. Address line 1
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.1363074570]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.1363074570]
 #. defaultMessage is:
 #. Address line 1
 msgctxt "description"
@@ -471,8 +499,8 @@ msgstr ""
 #. [src.components.AddressEdit.3121963259]
 #. defaultMessage is:
 #. Address line 2
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.3121963259]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.3121963259]
 #. defaultMessage is:
 #. Address line 2
 msgctxt "description"
@@ -645,6 +673,22 @@ msgstr ""
 #. All Vouchers
 msgctxt "tab name"
 msgid "All Vouchers"
+msgstr ""
+
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.3203451491] - filtering option
+#. defaultMessage is:
+#. All Warehouses
+msgctxt "filtering option"
+msgid "All Warehouses"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseListPage/WarehouseListPage.json
+#. [src.warehouses.components.WarehouseListPage.3203451491] - tab name
+#. defaultMessage is:
+#. All Warehouses
+msgctxt "tab name"
+msgid "All Warehouses"
 msgstr ""
 
 #: build/locale/src/webhooks/components/WebhooksListPage/WebhooksListPage.json
@@ -987,7 +1031,7 @@ msgctxt "dialog content"
 msgid "Are you sure you want to delete {counter,plural,one{this voucher} other{{displayQuantity} vouchers}}?"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [src.shipping.views.ShippingZoneDetails.131963671] - unassign country
 #. defaultMessage is:
 #. Are you sure you want to delete {countryName} from this shipping zone?
@@ -1059,7 +1103,7 @@ msgctxt "delete service account"
 msgid "Are you sure you want to delete {name}?"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [shippingZoneDetailsDialogsDeleteShippingMethod] - delete shipping method
 #. defaultMessage is:
 #. Are you sure you want to delete {name}?
@@ -1067,7 +1111,7 @@ msgctxt "delete shipping method"
 msgid "Are you sure you want to delete {name}?"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [shippingZoneDetailsDialogsDeleteShippingZone] - delete shipping zone
 #. defaultMessage is:
 #. Are you sure you want to delete {name}?
@@ -1113,6 +1157,14 @@ msgstr ""
 #. Are you sure you want to delete {voucherCode}?
 msgctxt "dialog content"
 msgid "Are you sure you want to delete {voucherCode}?"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseDeleteDialog/WarehouseDeleteDialog.json
+#. [src.warehouses.components.WarehouseDeleteDialog.1355303260] - dialog content
+#. defaultMessage is:
+#. Are you sure you want to delete {warehouseName}?
+msgctxt "dialog content"
+msgid "Are you sure you want to delete {warehouseName}?"
 msgstr ""
 
 #: build/locale/src/orders/components/OrderDraftFinalizeDialog/OrderDraftFinalizeDialog.json
@@ -1576,11 +1628,11 @@ msgid "Available"
 msgstr ""
 
 #: build/locale/src/products/components/ProductVariants/ProductVariants.json
-#. [src.products.components.ProductVariants.2157131639] - product variant status
+#. [src.products.components.ProductVariants.3284706946] - variant stock status
 #. defaultMessage is:
-#. Available
-msgctxt "product variant status"
-msgid "Available"
+#. Available inventoty at:
+msgctxt "variant stock status"
+msgid "Available inventoty at:"
 msgstr ""
 
 #: build/locale/src/taxes/components/CountryTaxesPage/CountryTaxesPage.json
@@ -1983,8 +2035,8 @@ msgstr ""
 #. [src.components.AddressEdit.253031977]
 #. defaultMessage is:
 #. City
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.253031977]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.253031977]
 #. defaultMessage is:
 #. City
 msgctxt "description"
@@ -2087,8 +2139,8 @@ msgstr ""
 #. [src.components.AddressEdit.3570415321]
 #. defaultMessage is:
 #. Company
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.3570415321]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.3570415321]
 #. defaultMessage is:
 #. Company
 msgctxt "description"
@@ -2347,8 +2399,8 @@ msgstr ""
 #. [src.components.AddressEdit.1139500589]
 #. defaultMessage is:
 #. Country
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.1139500589]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.1139500589]
 #. defaultMessage is:
 #. Country
 msgctxt "description"
@@ -2375,8 +2427,8 @@ msgstr ""
 #. [src.components.AddressEdit.944851093]
 #. defaultMessage is:
 #. Country area
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.944851093]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.944851093]
 #. defaultMessage is:
 #. Country area
 msgctxt "description"
@@ -2485,6 +2537,14 @@ msgstr ""
 #. Create New Shipping Zone
 msgctxt "header"
 msgid "Create New Shipping Zone"
+msgstr ""
+
+#: build/locale/src/shipping/components/ShippingZoneAddWarehouseDialog/ShippingZoneAddWarehouseDialog.json
+#. [src.shipping.components.ShippingZoneAddWarehouseDialog.3173942020] - header, dialog
+#. defaultMessage is:
+#. Create New Warehouse
+msgctxt "header, dialog"
+msgid "Create New Warehouse"
 msgstr ""
 
 #: build/locale/src/components/Navigator/modes/messages.json
@@ -2617,6 +2677,26 @@ msgstr ""
 #. Create Voucher
 msgctxt "page header"
 msgid "Create Voucher"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseCreatePage/WarehouseCreatePage.json
+#. [src.warehouses.components.WarehouseCreatePage.934572530] - header
+#. defaultMessage is:
+#. Create Warehouse
+#: build/locale/src/warehouses/views/WarehouseCreate/WarehouseCreate.json
+#. [src.warehouses.views.WarehouseCreate.934572530] - header
+#. defaultMessage is:
+#. Create Warehouse
+msgctxt "header"
+msgid "Create Warehouse"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseListPage/WarehouseListPage.json
+#. [src.warehouses.components.WarehouseListPage.934572530] - button
+#. defaultMessage is:
+#. Create Warehouse
+msgctxt "button"
+msgid "Create Warehouse"
 msgstr ""
 
 #: build/locale/src/webhooks/components/WebhookCreatePage/WebhookCreatePage.json
@@ -3259,7 +3339,7 @@ msgctxt "dialog title"
 msgid "Delete Service Account"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [src.shipping.views.ShippingZoneDetails.1502359905] - dialog header
 #. defaultMessage is:
 #. Delete Shipping Method
@@ -3267,7 +3347,7 @@ msgctxt "dialog header"
 msgid "Delete Shipping Method"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [src.shipping.views.ShippingZoneDetails.1010705153] - dialog header
 #. defaultMessage is:
 #. Delete Shipping Zone
@@ -3325,6 +3405,14 @@ msgstr ""
 #. Delete Vouchers
 msgctxt "dialog header"
 msgid "Delete Vouchers"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseDeleteDialog/WarehouseDeleteDialog.json
+#. [src.warehouses.components.WarehouseDeleteDialog.3857661071] - dialog title
+#. defaultMessage is:
+#. Delete Warehouse
+msgctxt "dialog title"
+msgid "Delete Warehouse"
 msgstr ""
 
 #: build/locale/src/webhooks/components/WebhookDeleteDialog/WebhookDeleteDialog.json
@@ -3391,7 +3479,7 @@ msgctxt "dialog title"
 msgid "Delete collections"
 msgstr ""
 
-#: build/locale/src/shipping/views/ShippingZoneDetails/ShippingZoneDetailsDialogs.json
+#: build/locale/src/shipping/views/ShippingZoneDetails/index.json
 #. [src.shipping.views.ShippingZoneDetails.3133838427] - unassign country, dialog header
 #. defaultMessage is:
 #. Delete from Shipping Zone
@@ -4447,6 +4535,14 @@ msgctxt "variant stock amount"
 msgid "Inventory"
 msgstr ""
 
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.3490038570] - product variant inventory status
+#. defaultMessage is:
+#. Inventory
+msgctxt "product variant inventory status"
+msgid "Inventory"
+msgstr ""
+
 #: build/locale/src/products/components/ProductVariantStock/ProductVariantStock.json
 #. [src.products.components.ProductVariantStock.3490038570] - product variant stock
 #. defaultMessage is:
@@ -4689,6 +4785,14 @@ msgstr ""
 #. Manage and add additional pages
 msgctxt "description"
 msgid "Manage and add additional pages"
+msgstr ""
+
+#: build/locale/src/configuration/index.json
+#. [configurationMenuWarehouses]
+#. defaultMessage is:
+#. Manage and update your warehouse information
+msgctxt "description"
+msgid "Manage and update your warehouse information"
 msgstr ""
 
 #: build/locale/src/configuration/index.json
@@ -4947,14 +5051,6 @@ msgctxt "plugin name"
 msgid "Name"
 msgstr ""
 
-#: build/locale/src/products/components/ProductVariants/ProductVariants.json
-#. [src.products.components.ProductVariants.636461959] - product variant name
-#. defaultMessage is:
-#. Name
-msgctxt "product variant name"
-msgid "Name"
-msgstr ""
-
 #: build/locale/src/services/components/ServiceList/ServiceList.json
 #. [src.services.components.ServiceList.636461959] - service name
 #. defaultMessage is:
@@ -4992,6 +5088,14 @@ msgstr ""
 #. defaultMessage is:
 #. Name
 msgctxt "entity (product, collection, shipping method) name"
+msgid "Name"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseList/WarehouseList.json
+#. [src.warehouses.components.WarehouseList.636461959] - warehouse
+#. defaultMessage is:
+#. Name
+msgctxt "warehouse"
 msgid "Name"
 msgstr ""
 
@@ -5503,6 +5607,14 @@ msgctxt "description"
 msgid "No vouchers found"
 msgstr ""
 
+#: build/locale/src/warehouses/components/WarehouseList/WarehouseList.json
+#. [src.warehouses.components.WarehouseList.3787396469]
+#. defaultMessage is:
+#. No warehouses found
+msgctxt "description"
+msgid "No warehouses found"
+msgstr ""
+
 #: build/locale/src/webhooks/components/WebhooksList/WebhooksList.json
 #. [src.webhooks.components.WebhooksList.1153324159]
 #. defaultMessage is:
@@ -5645,6 +5757,14 @@ msgstr ""
 #. Not set
 msgctxt "no address is set in draft order"
 msgid "Not set"
+msgstr ""
+
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.4017567521] - product variant inventory
+#. defaultMessage is:
+#. Not stocked
+msgctxt "product variant inventory"
+msgid "Not stocked"
 msgstr ""
 
 #: build/locale/src/customers/components/CustomerCreateNote/CustomerCreateNote.json
@@ -6243,8 +6363,8 @@ msgstr ""
 #. [src.components.AddressEdit.1271289966]
 #. defaultMessage is:
 #. Phone
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.1271289966]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.1271289966]
 #. defaultMessage is:
 #. Phone
 msgctxt "description"
@@ -7563,6 +7683,14 @@ msgctxt "description"
 msgid "Search Voucher"
 msgstr ""
 
+#: build/locale/src/warehouses/components/WarehouseListPage/WarehouseListPage.json
+#. [src.warehouses.components.WarehouseListPage.2304765290]
+#. defaultMessage is:
+#. Search Warehouse
+msgctxt "description"
+msgid "Search Warehouse"
+msgstr ""
+
 #: build/locale/src/webhooks/components/WebhooksListPage/WebhooksListPage.json
 #. [src.webhooks.components.WebhooksListPage.1432828311]
 #. defaultMessage is:
@@ -7695,12 +7823,28 @@ msgctxt "attribute values, variant creation step"
 msgid "Select Values"
 msgstr ""
 
+#: build/locale/src/shipping/components/ShippingZoneWarehouses/ShippingZoneWarehouses.json
+#. [src.shipping.components.ShippingZoneWarehouses.46197273] - input placeholder
+#. defaultMessage is:
+#. Select Warehouse
+msgctxt "input placeholder"
+msgid "Select Warehouse"
+msgstr ""
+
 #: build/locale/src/products/components/ProductVariantImages/ProductVariantImages.json
 #. [src.products.components.ProductVariantImages.3449133076]
 #. defaultMessage is:
 #. Select a specific variant image from product images
 msgctxt "description"
 msgid "Select a specific variant image from product images"
+msgstr ""
+
+#: build/locale/src/shipping/components/ShippingZoneWarehouses/ShippingZoneWarehouses.json
+#. [src.shipping.components.ShippingZoneWarehouses.3852102652]
+#. defaultMessage is:
+#. Select warehouse from which you will ship products for this shipping zone. This warehouse address will also be used to calculate taxes.
+msgctxt "description"
+msgid "Select warehouse from which you will ship products for this shipping zone. This warehouse address will also be used to calculate taxes."
 msgstr ""
 
 #: build/locale/src/components/TableHead/TableHead.json
@@ -7937,6 +8081,22 @@ msgstr ""
 #. Shipping Zone Name
 msgctxt "description"
 msgid "Shipping Zone Name"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseList/WarehouseList.json
+#. [src.warehouses.components.WarehouseList.1225932315]
+#. defaultMessage is:
+#. Shipping Zones
+msgctxt "description"
+msgid "Shipping Zones"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseZones/WarehouseZones.json
+#. [src.warehouses.components.WarehouseZones.1225932315] - zones that warehouse sends to
+#. defaultMessage is:
+#. Shipping Zones
+msgctxt "zones that warehouse sends to"
+msgid "Shipping Zones"
 msgstr ""
 
 #: build/locale/src/orders/components/OrderHistory/OrderHistory.json
@@ -8215,14 +8375,6 @@ msgctxt "plugin status"
 msgid "Status"
 msgstr ""
 
-#: build/locale/src/products/components/ProductVariants/ProductVariants.json
-#. [src.products.components.ProductVariants.1756106276] - product variant status
-#. defaultMessage is:
-#. Status
-msgctxt "product variant status"
-msgid "Status"
-msgstr ""
-
 #: build/locale/src/staff/components/StaffListPage/filters.json
 #. [src.staff.components.StaffListPage.status] - staff member's account
 #. defaultMessage is:
@@ -8279,8 +8431,8 @@ msgctxt "description"
 msgid "Store Description"
 msgstr ""
 
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.229184360] - section header
+#: build/locale/src/siteSettings/components/SiteSettingsPage/SiteSettingsPage.json
+#. [src.siteSettings.components.SiteSettingsPage.229184360] - section header
 #. defaultMessage is:
 #. Store Information
 msgctxt "section header"
@@ -8673,6 +8825,14 @@ msgstr ""
 #. This variant already exists
 msgctxt "product attribute error"
 msgid "This variant already exists"
+msgstr ""
+
+#: build/locale/src/warehouses/components/WarehouseZones/WarehouseZones.json
+#. [src.warehouses.components.WarehouseZones.2423245141]
+#. defaultMessage is:
+#. This warehouse has no shipping zones assigned.
+msgctxt "description"
+msgid "This warehouse has no shipping zones assigned."
 msgstr ""
 
 #: build/locale/src/siteSettings/components/SiteSettingsPage/SiteSettingsPage.json
@@ -9160,11 +9320,19 @@ msgid "Unassign products from collection"
 msgstr ""
 
 #: build/locale/src/products/components/ProductVariants/ProductVariants.json
-#. [src.products.components.ProductVariants.1033175132] - product variant status
+#. [src.products.components.ProductVariants.1033175132] - product variant inventory
 #. defaultMessage is:
 #. Unavailable
-msgctxt "product variant status"
+msgctxt "product variant inventory"
 msgid "Unavailable"
+msgstr ""
+
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.1001303107] - product variant inventory
+#. defaultMessage is:
+#. Unavailable in all locations
+msgctxt "product variant inventory"
+msgid "Unavailable in all locations"
 msgstr ""
 
 #: build/locale/src/intl.json
@@ -9495,6 +9663,14 @@ msgctxt "variant name"
 msgid "Variant"
 msgstr ""
 
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.998917294] - product variant name
+#. defaultMessage is:
+#. Variant
+msgctxt "product variant name"
+msgid "Variant"
+msgstr ""
+
 #: build/locale/src/translations/components/TranslationsProductTypesPage/TranslationsProductTypesPage.json
 #. [src.translations.components.TranslationsProductTypesPage.3538502409] - header
 #. defaultMessage is:
@@ -9703,6 +9879,42 @@ msgctxt "description"
 msgid "Vouchers"
 msgstr ""
 
+#: build/locale/src/shipping/components/ShippingZoneWarehouses/ShippingZoneWarehouses.json
+#. [src.shipping.components.ShippingZoneWarehouses.1221560277] - section header
+#. defaultMessage is:
+#. Warehouse
+msgctxt "section header"
+msgid "Warehouse"
+msgstr ""
+
+#: build/locale/src/shipping/components/ShippingZoneWarehouses/ShippingZoneWarehouses.json
+#. [shippingZoneWarehouses.autocomplete.label]
+#. defaultMessage is:
+#. Warehouse
+msgctxt "description"
+msgid "Warehouse"
+msgstr ""
+
+#: build/locale/src/shipping/components/ShippingZoneAddWarehouseDialog/ShippingZoneAddWarehouseDialog.json
+#. [src.shipping.components.ShippingZoneAddWarehouseDialog.2622674857]
+#. defaultMessage is:
+#. Warehouse Name
+#: build/locale/src/warehouses/components/WarehouseInfo/WarehouseInfo.json
+#. [src.warehouses.components.WarehouseInfo.2622674857]
+#. defaultMessage is:
+#. Warehouse Name
+msgctxt "description"
+msgid "Warehouse Name"
+msgstr ""
+
+#: build/locale/src/intl.json
+#. [src.warehouses] - warehouses section name
+#. defaultMessage is:
+#. Warehouses
+msgctxt "warehouses section name"
+msgid "Warehouses"
+msgstr ""
+
 #: build/locale/src/taxes/components/CountryTaxesPage/CountryTaxesPage.json
 #. [src.taxes.components.CountryTaxesPage.3525010870] - tax rate
 #. defaultMessage is:
@@ -9851,8 +10063,8 @@ msgstr ""
 #. [src.components.AddressEdit.2965971965]
 #. defaultMessage is:
 #. ZIP / Postal code
-#: build/locale/src/siteSettings/components/SiteSettingsAddress/SiteSettingsAddress.json
-#. [src.siteSettings.components.SiteSettingsAddress.2965971965]
+#: build/locale/src/components/CompanyAddressInput/CompanyAddressForm.json
+#. [src.components.CompanyAddressInput.2965971965]
 #. defaultMessage is:
 #. ZIP / Postal code
 msgctxt "description"
@@ -10135,6 +10347,14 @@ msgctxt "button"
 msgid "{languageName} - {languageCode}"
 msgstr ""
 
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.1840625808] - product variant inventory
+#. defaultMessage is:
+#. {numAvailable} available at {numLocations} {numLocations,plural,one{location} other{locations}}
+msgctxt "product variant inventory"
+msgid "{numAvailable} available at {numLocations} {numLocations,plural,one{location} other{locations}}"
+msgstr ""
+
 #: build/locale/src/components/SeoForm/SeoForm.json
 #. [src.components.SeoForm.3877274856] - character limit
 #. defaultMessage is:
@@ -10189,6 +10409,14 @@ msgstr ""
 #. {quantity} items
 msgctxt "ordered products"
 msgid "{quantity} items"
+msgstr ""
+
+#: build/locale/src/products/components/ProductVariants/ProductVariants.json
+#. [src.products.components.ProductVariants.1140372148] - product variant inventory
+#. defaultMessage is:
+#. {stockQuantity} available
+msgctxt "product variant inventory"
+msgid "{stockQuantity} available"
 msgstr ""
 
 #: build/locale/src/components/Weight/Weight.json
