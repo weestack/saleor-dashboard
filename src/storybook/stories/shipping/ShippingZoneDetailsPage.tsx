@@ -1,6 +1,8 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 
+import { warehouseList } from "@saleor/warehouses/fixtures";
+import { fetchMoreProps, searchPageProps } from "@saleor/fixtures";
 import ShippingZoneDetailsPage, {
   ShippingZoneDetailsPageProps
 } from "../../../shipping/components/ShippingZoneDetailsPage";
@@ -9,6 +11,8 @@ import Decorator from "../../Decorator";
 import { formError } from "../../misc";
 
 const props: ShippingZoneDetailsPageProps = {
+  ...fetchMoreProps,
+  ...searchPageProps,
   disabled: false,
   errors: [],
   onBack: () => undefined,
@@ -19,10 +23,12 @@ const props: ShippingZoneDetailsPageProps = {
   onPriceRateEdit: () => undefined,
   onRateRemove: () => undefined,
   onSubmit: () => undefined,
+  onWarehouseAdd: () => undefined,
   onWeightRateAdd: () => undefined,
   onWeightRateEdit: () => undefined,
   saveButtonBarState: "default",
-  shippingZone
+  shippingZone,
+  warehouses: warehouseList
 };
 
 storiesOf("Views / Shipping / Shipping zone details", module)

@@ -7,10 +7,9 @@ import { useIntl } from "react-intl";
 import CardTitle from "@saleor/components/CardTitle";
 import { commonMessages } from "@saleor/intl";
 import { FormErrors } from "../../../types";
-import { FormData } from "../ShippingZoneDetailsPage";
 
 export interface ShippingZoneInfoProps {
-  data: FormData;
+  data: Record<"name", string>;
   errors: FormErrors<"name">;
   onChange: (event: React.ChangeEvent<any>) => void;
 }
@@ -35,7 +34,7 @@ const ShippingZoneInfo: React.FC<ShippingZoneInfoProps> = ({
           label={intl.formatMessage({
             defaultMessage: "Shipping Zone Name"
           })}
-          name={"name" as keyof FormData}
+          name="name"
           value={data.name}
           onChange={onChange}
         />
