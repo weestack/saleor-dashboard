@@ -4,13 +4,13 @@ import React from "react";
 import { useIntl } from "react-intl";
 
 import CardTitle from "@saleor/components/CardTitle";
-import { FetchMoreProps } from "@saleor/types";
+import { FetchMoreProps, SearchProps } from "@saleor/types";
 import { FormChange } from "@saleor/hooks/useForm";
 import SingleAutocompleteSelectField, {
   SingleAutocompleteChoiceType
 } from "@saleor/components/SingleAutocompleteSelectField";
 
-interface VisibilityCardProps extends FetchMoreProps {
+interface VisibilityCardProps extends FetchMoreProps, SearchProps {
   data: Record<"warehouse", string>;
   displayValue: string;
   warehouses: SingleAutocompleteChoiceType[];
@@ -27,6 +27,7 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
     warehouses,
     onChange,
     onFetchMore,
+    onSearchChange,
     onWarehouseAdd
   } = props;
   const intl = useIntl();
@@ -49,10 +50,15 @@ export const ShippingZoneWarehouses: React.FC<VisibilityCardProps> = props => {
             onClick: onWarehouseAdd
           }}
           choices={warehouses}
+          fetchChoices={onSearchChange}
           name="warehouse"
           onChange={onChange}
           onFetchMore={onFetchMore}
           hasMore={hasMore}
+          helperText={intl.formatMessage({
+            defaultMessage:
+              "Select warehouse from which you will ship products for this shipping zone. This warehouse address will also be used to calculate taxes."
+          })}
           loading={loading}
           placeholder={intl.formatMessage({
             defaultMessage: "Select Warehouse",

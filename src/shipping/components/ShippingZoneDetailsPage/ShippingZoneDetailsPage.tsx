@@ -13,7 +13,7 @@ import SaveButtonBar from "@saleor/components/SaveButtonBar";
 import createSingleAutocompleteSelectHandler from "@saleor/utils/handlers/singleAutocompleteSelectChangeHandler";
 import useStateFromProps from "@saleor/hooks/useStateFromProps";
 import { maybe } from "../../../misc";
-import { UserError } from "../../../types";
+import { UserError, FetchMoreProps, SearchProps } from "../../../types";
 import { ShippingMethodTypeEnum } from "../../../types/globalTypes";
 import {
   ShippingZoneDetailsFragment,
@@ -28,7 +28,9 @@ export interface FormData {
   warehouse: string;
 }
 
-export interface ShippingZoneDetailsPageProps {
+export interface ShippingZoneDetailsPageProps
+  extends FetchMoreProps,
+    SearchProps {
   disabled: boolean;
   errors: UserError[];
   saveButtonBarState: ConfirmButtonTransitionState;
@@ -50,13 +52,17 @@ export interface ShippingZoneDetailsPageProps {
 const ShippingZoneDetailsPage: React.FC<ShippingZoneDetailsPageProps> = ({
   disabled,
   errors,
+  hasMore,
+  loading,
   onBack,
   onCountryAdd,
   onCountryRemove,
   onDelete,
+  onFetchMore,
   onPriceRateAdd,
   onPriceRateEdit,
   onRateRemove,
+  onSearchChange,
   onSubmit,
   onWarehouseAdd,
   onWeightRateAdd,
@@ -156,11 +162,12 @@ const ShippingZoneDetailsPage: React.FC<ShippingZoneDetailsPageProps> = ({
                 <ShippingZoneWarehouses
                   data={data}
                   displayValue={warehouseDisplayValue}
-                  hasMore={false}
-                  loading={false}
+                  hasMore={hasMore}
+                  loading={loading}
                   warehouses={warehouseChoices}
                   onChange={handleWarehouseChange}
-                  onFetchMore={() => undefined}
+                  onFetchMore={onFetchMore}
+                  onSearchChange={onSearchChange}
                   onWarehouseAdd={onWarehouseAdd}
                 />
               </div>
