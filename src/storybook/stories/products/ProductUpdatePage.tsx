@@ -9,7 +9,8 @@ import ProductUpdatePage, {
 } from "@saleor/products/components/ProductUpdatePage";
 import { product as productFixture } from "@saleor/products/fixtures";
 import { ProductUpdatePageFormData } from "@saleor/products/utils/data";
-import { formError } from "@saleor/storybook/misc";
+import { ProductErrorCode } from "@saleor/types/globalTypes";
+import { warehouseList } from "@saleor/warehouses/fixtures";
 import Decorator from "../../Decorator";
 
 const product = productFixture(placeholderImage);
@@ -30,7 +31,6 @@ const props: ProductUpdatePageProps = {
   onDelete: () => undefined,
   onImageDelete: () => undefined,
   onImageUpload: () => undefined,
-  onProductShow: () => undefined,
   onSubmit: () => undefined,
   onVariantAdd: () => undefined,
   onVariantShow: () => undefined,
@@ -38,7 +38,8 @@ const props: ProductUpdatePageProps = {
   placeholderImage,
   product,
   saveButtonBarState: "default",
-  variants: product.variants
+  variants: product.variants,
+  warehouses: warehouseList
 };
 
 storiesOf("Views / Products / Product edit", module)
@@ -73,7 +74,28 @@ storiesOf("Views / Products / Product edit", module)
       {...props}
       product={{
         ...props.product,
-        variants: []
+        productType: {
+          ...product.productType,
+          hasVariants: false
+        }
+      }}
+    />
+  ))
+  .add("no stock and no variants", () => (
+    <ProductUpdatePage
+      {...props}
+      product={{
+        ...product,
+        productType: {
+          ...product.productType,
+          hasVariants: false
+        },
+        variants: [
+          {
+            ...product.variants[0],
+            stocks: []
+          }
+        ]
       }}
     />
   ))
@@ -94,7 +116,6 @@ storiesOf("Views / Products / Product edit", module)
         "category",
         "chargeTaxes",
         "collections",
-        "description",
         "isPublished",
         "name",
         "publicationDate",
@@ -102,6 +123,10 @@ storiesOf("Views / Products / Product edit", module)
         "seoTitle",
         "sku",
         "stockQuantity"
-      ] as Array<keyof ProductUpdatePageFormData>).map(formError)}
+      ] as Array<keyof ProductUpdatePageFormData>).map(field => ({
+        __typename: "ProductError",
+        code: ProductErrorCode.INVALID,
+        field
+      }))}
     />
   ));

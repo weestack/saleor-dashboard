@@ -13,7 +13,8 @@ import SaveFilterTabDialog, {
 import {
   defaultListSettings,
   ProductListColumns,
-  DEFAULT_INITIAL_SEARCH_DATA
+  DEFAULT_INITIAL_SEARCH_DATA,
+  DEFAULT_INITIAL_PAGINATION_DATA
 } from "@saleor/config";
 import useBulkActions from "@saleor/hooks/useBulkActions";
 import useListSettings from "@saleor/hooks/useListSettings";
@@ -33,6 +34,10 @@ import createFilterHandlers from "@saleor/utils/handlers/filterHandlers";
 import useCategorySearch from "@saleor/searches/useCategorySearch";
 import useCollectionSearch from "@saleor/searches/useCollectionSearch";
 import useProductTypeSearch from "@saleor/searches/useProductTypeSearch";
+import {
+  getAttributeIdFromColumnValue,
+  isAttributeColumnValue
+} from "@saleor/products/components/ProductListPage/utils";
 import ProductListPage from "../../components/ProductListPage";
 import {
   TypedProductBulkDeleteMutation,
@@ -112,8 +117,7 @@ export const ProductList: React.FC<ProductListProps> = ({ params }) => {
       navigate(
         productListUrl({
           ...params,
-          after: undefined,
-          before: undefined
+          ...DEFAULT_INITIAL_PAGINATION_DATA
         }),
         true
       ),
@@ -172,7 +176,8 @@ export const ProductList: React.FC<ProductListProps> = ({ params }) => {
       productListUrl({
         ...params,
         ...getSortUrlVariables(field, params),
-        attributeId
+        attributeId,
+        ...DEFAULT_INITIAL_PAGINATION_DATA
       })
     );
 
@@ -215,9 +220,15 @@ export const ProductList: React.FC<ProductListProps> = ({ params }) => {
     }
   );
 
+  function filterColumnIds(columns: ProductListColumns[]) {
+    return columns
+      .filter(isAttributeColumnValue)
+      .map(getAttributeIdFromColumnValue);
+  }
+
   return (
     <AvailableInGridAttributesQuery
-      variables={{ first: 6, ids: settings.columns }}
+      variables={{ first: 6, ids: filterColumnIds(settings.columns) }}
     >
       {attributes => (
         <TypedProductListQuery displayLoader variables={queryVariables}>

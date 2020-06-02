@@ -7,7 +7,9 @@ import useNavigator from "@saleor/hooks/useNavigator";
 import useNotifier from "@saleor/hooks/useNotifier";
 import { commonMessages } from "@saleor/intl";
 import NotFoundPage from "@saleor/components/NotFoundPage";
-import { decimal, maybe } from "../../misc";
+import createDialogActionHandlers from "@saleor/utils/handlers/dialogActionHandlers";
+import { useWarehouseList } from "@saleor/warehouses/queries";
+import { decimal } from "../../misc";
 import ProductVariantDeleteDialog from "../components/ProductVariantDeleteDialog";
 import ProductVariantPage, {
   ProductVariantPageSubmitData
@@ -16,14 +18,16 @@ import ProductVariantOperations from "../containers/ProductVariantOperations";
 import { TypedProductVariantQuery } from "../queries";
 import {
   VariantUpdate,
-  VariantUpdate_productVariantUpdate_productErrors
+  VariantUpdate_productVariantUpdate_errors
 } from "../types/VariantUpdate";
 import {
   productUrl,
   productVariantAddUrl,
   productVariantEditUrl,
-  ProductVariantEditUrlQueryParams
+  ProductVariantEditUrlQueryParams,
+  ProductVariantEditUrlDialog
 } from "../urls";
+import { mapFormsetStockToStockInput } from "../utils/data";
 
 interface ProductUpdateProps {
   variantId: string;
@@ -40,11 +44,27 @@ export const ProductVariant: React.FC<ProductUpdateProps> = ({
   const notify = useNotifier();
   const intl = useIntl();
   const [errors, setErrors] = useState<
-    VariantUpdate_productVariantUpdate_productErrors[]
+    VariantUpdate_productVariantUpdate_errors[]
   >([]);
   useEffect(() => {
     setErrors([]);
   }, [variantId]);
+
+  const warehouses = useWarehouseList({
+    displayLoader: true,
+    variables: {
+      first: 50
+    }
+  });
+
+  const [openModal] = createDialogActionHandlers<
+    ProductVariantEditUrlDialog,
+    ProductVariantEditUrlQueryParams
+  >(
+    navigate,
+    params => productVariantEditUrl(productId, variantId, params),
+    params
+  );
 
   const handleBack = () => navigate(productUrl(productId));
 
@@ -66,10 +86,10 @@ export const ProductVariant: React.FC<ProductUpdateProps> = ({
           navigate(productUrl(productId));
         };
         const handleUpdate = (data: VariantUpdate) => {
-          if (!data.productVariantUpdate.productErrors.length) {
+          if (data.productVariantUpdate.errors.length === 0) {
             notify({ text: intl.formatMessage(commonMessages.savedChanges) });
           } else {
-            setErrors(data.productVariantUpdate.productErrors);
+            setErrors(data.productVariantUpdate.errors);
           }
         };
 
@@ -107,40 +127,43 @@ export const ProductVariant: React.FC<ProductUpdateProps> = ({
 
               return (
                 <>
-                  <WindowTitle title={maybe(() => data.productVariant.name)} />
+                  <WindowTitle title={data?.productVariant?.name} />
                   <ProductVariantPage
                     errors={errors}
                     saveButtonBarState={updateVariant.opts.status}
                     loading={disableFormSave}
                     placeholderImage={placeholderImg}
                     variant={variant}
-                    header={variant ? variant.name || variant.sku : undefined}
+                    header={variant?.name || variant?.sku}
+                    warehouses={
+                      warehouses.data?.warehouses.edges.map(
+                        edge => edge.node
+                      ) || []
+                    }
                     onAdd={() => navigate(productVariantAddUrl(productId))}
                     onBack={handleBack}
-                    onDelete={() =>
-                      navigate(
-                        productVariantEditUrl(productId, variantId, {
-                          action: "remove"
-                        })
-                      )
-                    }
+                    onDelete={() => openModal("remove")}
                     onImageSelect={handleImageSelect}
-                    onSubmit={(data: ProductVariantPageSubmitData) => {
-                      if (variant) {
-                        updateVariant.mutate({
-                          attributes: data.attributes.map(attribute => ({
-                            id: attribute.id,
-                            values: [attribute.value]
-                          })),
-                          costPrice: decimal(data.costPrice),
-                          id: variantId,
-                          priceOverride: decimal(data.priceOverride),
-                          quantity: parseInt(data.quantity, 0),
-                          sku: data.sku,
-                          trackInventory: true // FIXME: missing in UI
-                        });
-                      }
-                    }}
+                    onSubmit={(data: ProductVariantPageSubmitData) =>
+                      updateVariant.mutate({
+                        addStocks: data.addStocks.map(
+                          mapFormsetStockToStockInput
+                        ),
+                        attributes: data.attributes.map(attribute => ({
+                          id: attribute.id,
+                          values: [attribute.value]
+                        })),
+                        costPrice: decimal(data.costPrice),
+                        id: variantId,
+                        priceOverride: decimal(data.priceOverride),
+                        removeStocks: data.removeStocks,
+                        sku: data.sku,
+                        stocks: data.updateStocks.map(
+                          mapFormsetStockToStockInput
+                        ),
+                        trackInventory: data.trackInventory
+                      })
+                    }
                     onVariantClick={variantId => {
                       navigate(productVariantEditUrl(productId, variantId));
                     }}
@@ -156,7 +179,7 @@ export const ProductVariant: React.FC<ProductUpdateProps> = ({
                       })
                     }
                     open={params.action === "remove"}
-                    name={maybe(() => data.productVariant.name)}
+                    name={data?.productVariant?.name}
                   />
                 </>
               );

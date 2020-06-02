@@ -99,7 +99,7 @@ export const CategoryDetails: React.FC<CategoryDetailsProps> = ({
       );
       if (backgroundImageError) {
         notify({
-          text: backgroundImageError.message
+          text: intl.formatMessage(commonMessages.somethingWentWrong)
         });
       }
     }
@@ -170,7 +170,7 @@ export const CategoryDetails: React.FC<CategoryDetailsProps> = ({
               currentTab={params.activeTab}
               category={maybe(() => data.category)}
               disabled={loading}
-              errors={maybe(() => updateResult.data.categoryUpdate.errors)}
+              errors={updateResult.data?.categoryUpdate.errors || []}
               onAddCategory={() => navigate(categoryAddUrl(id))}
               onAddProduct={() => navigate(productAddUrl)}
               onBack={() =>

@@ -4,6 +4,8 @@ All notable, unreleased changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## 2.10.0
+
 - Fix minor bugs - #244 by @dominik-zeglen
 - Fix tax settings updating - #243 by @dominik-zeglen
 - Add secret fields in plugin configuration - #246 by @dominik-zeglen
@@ -36,6 +38,21 @@ All notable, unreleased changes to this project will be documented in this file.
 - Remove PO files from repo and update translations #409 by @dominik-zeglen
 - Add optional chaining and explicitely return "Not found" page - #408 by @dominik-zeglen
 - Do not store errors in form component - #410 by @dominik-zeglen
+- Handle rich text editor content error - #395 by @dominik-zeglen
+- Fix crashing views - #422 by @dominik-zeglen
+- Add "Ready to capture" to the "Status" order filter - #430 by @dominik-zeglen
+- Reset state after closing - #456 by @dominik-zeglen
+- Password validation errors are not shown - #471 by @gabmartinez
+- Reset pagination when guest change the sorting of the list - #474 by @gabmartinez
+- Filter column ids before send it to GridAttributes operation - #476 by @gabmartinez
+- Display Is Published column correctly in main Product Listing - #475 by @gabmartinez
+- Add Permission Groups section - #406 by @krzysztofwolski
+- Add warehouse management - #390 by @dominik-zeglen
+- Fix minor visual bugs - #521 by @dominik-zeglen
+- Handle session expiration - #520 by @dominik-zeglen
+- Update product stock management to newest design - #515 by @dominik-zeglen
+- Handle untracked products - #523 by @dominik-zeglen
+- Display correct error if there were no graphql errors - #525 by @dominik-zeglen
 
 ## 2.0.0
 
